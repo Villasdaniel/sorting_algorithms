@@ -20,9 +20,12 @@ void selection_sort(int *array, size_t size)
 			if (array[j] < array[tmp])
 				tmp = j;
 		}
-		tmps = array[i];
-		array[i] = array[tmp];
-		array[tmp] = tmps;
-		print_array(array, size);
+		if (i != tmp)
+		{
+			tmps = array[i];
+			array[i] = array[tmp];
+			array[tmp] = tmps;
+			print_array(array, size);
+		}
 	}
 }
