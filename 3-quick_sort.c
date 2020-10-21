@@ -8,9 +8,9 @@
  */
 void quick_sort(int *array, size_t size)
 {
-    if (size < 2)
-        return;
-    quick_sort_complement(array, size, 0, size - 1);
+	if (size < 2)
+		return;
+	quick_sort_complement(array, size, 0, size - 1);
 
 }
 
@@ -24,14 +24,14 @@ void quick_sort(int *array, size_t size)
  */
 void quick_sort_complement(int *array, size_t size, int p_low, int p_high)
 {
-    int pivote = 0;
+	int pivote = 0;
 
-    if (p_low < p_high)
-    {
-        pivote = partition(array, size, p_low, p_high);
-        quick_sort_complement(array, size, p_low, pivote - 1);
-        quick_sort_complement(array, size, pivote + 1, p_high);
-    }
+	if (p_low < p_high)
+	{
+		pivote = partition(array, size, p_low, p_high);
+		quick_sort_complement(array, size, p_low, pivote - 1);
+		quick_sort_complement(array, size, pivote + 1, p_high);
+	}
 }
 
 /**
@@ -44,29 +44,29 @@ void quick_sort_complement(int *array, size_t size, int p_low, int p_high)
  */
 int partition(int *array, size_t size, int p_low, int p_high)
 {
-    int pivote, min_num, temp_swap, count;
+	int pivote, min_num, temp_swap, count;
 
-    pivote = array[p_high];
-    min_num = p_low;
+	pivote = array[p_high];
+	min_num = p_low;
 
-    for (count = p_low; count < p_high; count++)
-    {
-        if (array[count] <= pivote)
-        {
-            temp_swap = array[count];
-            array[count] = array[min_num];
-            array[min_num] = temp_swap;
-            if (count != min_num)
-                print_array(array, size);
-            min_num++;
+	for (count = p_low; count < p_high; count++)
+	{
+		if (array[count] <= pivote)
+		{
+			temp_swap = array[count];
+			array[count] = array[min_num];
+			array[min_num] = temp_swap;
+			if (count != min_num)
+				print_array(array, size);
+			min_num++;
 
-        }
-    }
-    temp_swap = array[count];
-    array[count] = array[min_num];
-    array[min_num] = temp_swap;
-    if (count != min_num)
-        print_array(array, size);
+		}
+	}
+	temp_swap = array[count];
+	array[count] = array[min_num];
+	array[min_num] = temp_swap;
+	if (count != min_num)
+		print_array(array, size);
 
-    return (min_num);
+	return (min_num);
 }
